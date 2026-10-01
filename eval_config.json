@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "rubric_based_final_response_quality_v1": {
+      "threshold": 0.7,
+      "judge_model_options": {
+        "judge_model": "gemini-flash-latest",
+        "num_samples": 1
+      },
+      "rubrics": [
+        {
+          "rubric_id": "relevance",
+          "rubric_content": {
+            "text_property": "応答がユーザーの問い合わせや要望に直接かつ的確に対応している。"
+          }
+        },
+        {
+          "rubric_id": "scope_adherence",
+          "rubric_content": {
+            "text_property": "配送・物流サポートの対象外である質問（天気、プログラミング、雑談等）に対しては、配送専門のサポート窓口である旨を明記して丁重にお断りし、配送関連の質問への案内を行っている。"
+          }
+        },
+        {
+          "rubric_id": "policy_accuracy",
+          "rubric_content": {
+            "text_property": "配送・追跡・料金・返品に関する質問に対して、規定の配送ポリシー（30日以内の返品可能期間、14日以内の破損申告、不在時3回の配達試行・5日間の保管、翌日配送の基準等）に沿った正確な情報を提供している。"
+          }
+        },
+        {
+          "rubric_id": "courtesy_and_helpfulness",
+          "rubric_content": {
+            "text_property": "カスタマーサポートとして丁寧かつ親切で共感的なトーンを保ち、必要に応じて具体的な次のアクション（箇条書き等）を分かりやすく提示している。"
+          }
+        }
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,39 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "shipping_tracking",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Where is my package with tracking number TRK987654321?"}]
+      }
+    },
+    {
+      "eval_case_id": "shipping_rates",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What are your shipping rates and delivery times for overnight express?"}]
+      }
+    },
+    {
+      "eval_case_id": "shipping_returns",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What is your return policy for damaged delivery items?"}]
+      }
+    },
+    {
+      "eval_case_id": "unrelated_weather",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What's the weather forecast for tomorrow in Seattle?"}]
+      }
+    },
+    {
+      "eval_case_id": "unrelated_poem",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Write a sonnet about autumn leaves."}]
+      }
+    }
+  ]
+}

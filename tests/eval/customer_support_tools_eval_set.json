@@ -1,0 +1,104 @@
+{
+  "eval_set_id": "customer_support_tools_eval_set_001",
+  "name": "Customer Support Agent Tool Calling Evaluation Set",
+  "description": "Evaluation dataset for tool execution: package tracking, rate calculation, and return label creation.",
+  "eval_cases": [
+    {
+      "eval_id": "test_tool_track_package",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Can you track my shipment TRACK12345678 and tell me when it was delivered?"
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_calls": [
+              {
+                "name": "track_package",
+                "args": {
+                  "tracking_number": "TRACK12345678"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "eval_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_tool_calculate_rates",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "How much does it cost to ship a 3.0kg package from Japan to USA using priority express?"
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_calls": [
+              {
+                "name": "calculate_shipping_rate",
+                "args": {
+                  "origin_country": "Japan",
+                  "destination_country": "USA",
+                  "weight_kg": 3.0,
+                  "service_tier": "express"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "eval_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_tool_create_return",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "I need to return order ORD-2026-8812 because it arrived defective. Can you generate a return label?"
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_calls": [
+              {
+                "name": "create_return_label",
+                "args": {
+                  "order_id": "ORD-2026-8812",
+                  "reason": "defective"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "eval_user",
+        "state": {}
+      }
+    }
+  ]
+}

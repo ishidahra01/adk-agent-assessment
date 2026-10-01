@@ -1,0 +1,217 @@
+{
+  "eval_set_id": "customer_support_eval_set_001",
+  "name": "カスタマーサポートエージェント（配送・物流）機能評価セット",
+  "description": "ADK Eval用データセット：配送追跡、料金、返品・破損申告、配達変更、および対象外（スコープ外）問い合わせの判定・回答品質を評価するテストケース群",
+  "eval_cases": [
+    {
+      "eval_id": "test_tracking_delayed_package",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Where is my package with tracking number TRK987654321? The delivery was scheduled for yesterday, but it still hasn't arrived. What should I do?"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_shipping_rates_overnight",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "What are your shipping rates and delivery times for overnight express? I need to send a 2kg parcel urgently."
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_returns_and_damaged_item",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "I received my order today, but the box is crushed and the item inside is damaged. How do I initiate a return or file a claim?"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_delivery_hold_at_depot",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "I will be out of town when the driver arrives. Can I request to hold my package at a local depot, and how many delivery attempts will be made before return?"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_international_shipping_guidance",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Do you offer international shipping? What kind of paperwork or customs clearance information do I need to prepare?"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_unrelated_weather_decline",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "What is the weather forecast for tomorrow in Tokyo?"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_unrelated_coding_decline",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Write a Python script that calculates the Fibonacci sequence using memoization."
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_japanese_tracking_inquiry",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "追跡番号 TRK123456789 の配送状況を確認したいのですが、お届け予定日を過ぎても荷物が届きません。どのような対応を取ればよいでしょうか？"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_japanese_damaged_return_claim",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "届いた荷物の外箱が破損しており、商品にも傷がついていました。返品手続きと補償の申請期限や手順を教えてください。"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "test_japanese_unrelated_decline",
+      "conversation": [
+        {
+          "invocation_id": "turn-1",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "おすすめの映画や週末の過ごし方を教えてください。"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "app",
+        "user_id": "test_user",
+        "state": {}
+      }
+    }
+  ]
+}

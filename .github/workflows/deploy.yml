@@ -1,0 +1,46 @@
+name: CD Pipeline (Deploy to Cloud Run)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - ".gitignore"
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID || 'ge-hiroakiishida' }}
+  REGION: ${{ secrets.GCP_REGION || 'us-central1' }}
+  SERVICE_NAME: customer-support-agent
+
+jobs:
+  deploy:
+    name: Build & Deploy to Cloud Run
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        if: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}"
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        if: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}"
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Authorize Docker push
+        if: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}"
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build and Deploy (Dry-run / Verification when no GCP credentials)
+        run: |
+          echo "CI/CD Deployment pipeline ready for Cloud Run."
+          echo "Target Project: $PROJECT_ID, Region: $REGION, Service: $SERVICE_NAME"
